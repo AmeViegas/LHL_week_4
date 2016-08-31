@@ -1,0 +1,45 @@
+<div class="row">
+<div class="col s12 m8 l9">
+<h2><img src="/images/guitar.jpg" width="80" height="80" alt="guitar cat">Add Song </h2>
+
+<hr />
+<% if @song.errors.any? %>
+
+  <strong>Some issues with your song, please fix them: </strong>
+  <ul>
+    <% @song.errors.full_messages.each do |song_err| %>
+    <li> <%= song_err %> </li>
+    <% end %>
+  </ul>
+</div>
+</div>
+<% end %>
+
+
+<form method="post" action="/new_song">
+  <div class="row">
+    <div class="col s12 m8 l9">
+    <label> <i class="fa fa-music" aria-hidden="true"></i>  Song Title: </label>
+    <input type="text" name="song_title" value=""<%= @song.song_title %>">
+    <label> <i class="fa fa-users" aria-hidden="true"></i> Author: </label>
+    <input type="text" name="author" value=""<%= @song.author %>">
+    <label><i class="material-icons web">web</i> URL(optional)</label>
+    <input type="text" name="url" value=""<%= @song.url %>">
+  </div>
+  </div>
+  <div class="left-align">
+    <a href="/index">
+    <button class="btn waves-effect waves-light" type="button">
+      cancel
+      <i class="material-icons left">cancel</i>
+    </button>
+  </a>
+  </div>
+
+  <div class="right-align">
+    <button class="btn waves-effect waves-light" type="submit" name="action">
+      Add Song
+      <i class="material-icons right">send</i>
+    </button>
+  </div>
+</form>

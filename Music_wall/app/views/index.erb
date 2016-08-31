@@ -1,0 +1,27 @@
+
+<h2><img src="/images/guitar.jpg" width="80" height="80" alt="guitar cat">Sinatra Songs </h2>
+<table>
+  <thead>
+    <tr>
+      <th data-field="id">Song Title</th>
+      <th data-field="name">Author</th>
+      <th data-field="name">URL</th>
+    </tr>
+  </thead>
+
+  <% @songs.each do |song| %>
+  <tbody>
+    <tr>
+       <td> <%= song.song_title %> </td>
+       <td> <%= song.author %> </td>
+       <td> <a href="<%= song.url %>"> <%= song.url%> </a> </td>
+     </tr>
+     <% end %>
+   </tbody>
+  </table>
+
+<div class="center-align">
+  <a class="btn-floating btn-large waves-effect waves-light red" href ="/new_song">
+    <i class="material-icons">playlist_add</i>
+  </a>
+</div>
